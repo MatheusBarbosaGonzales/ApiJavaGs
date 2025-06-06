@@ -8,6 +8,7 @@ import jakarta.ws.rs.core.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 
 @Path("/chamados")
@@ -27,7 +28,11 @@ public class ChamadosResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public ArrayList<Chamado> listarChamados() throws SQLException {
-        return chamadoBO.listarChamados();
+        try {
+            return chamadoBO.listarChamados();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @PATCH
