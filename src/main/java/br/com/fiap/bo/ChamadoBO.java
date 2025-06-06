@@ -8,10 +8,14 @@ import java.util.ArrayList;
 
 public class ChamadoBO
 {
-    private ChamadoDAO chamadoDAO;
+    private ChamadoDAO  chamadoDAO;
 
     public ChamadoBO() throws SQLException, ClassNotFoundException {
         chamadoDAO = new ChamadoDAO();
+    }
+
+    public void apagarChamado(int id) throws SQLException {
+        chamadoDAO.deletar(id);
     }
 
     public void criarChamado(Chamado chamadoInput) throws SQLException {
