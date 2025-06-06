@@ -57,6 +57,7 @@ public class ChamadoDAO
             chamado.setData(rs.getString(5));
             listaChamados.add(chamado);
         }
+        stmt.close();
         return listaChamados;
     }
 
