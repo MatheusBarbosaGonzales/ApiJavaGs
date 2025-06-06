@@ -11,9 +11,11 @@ import jakarta.ws.rs.ext.Provider;
 public class CorsFilter implements ContainerResponseFilter {
 
     @Override
-    public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
-            throws IOException {
+    public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
+
+
         String origin = requestContext.getHeaderString("Origin");
+        System.out.println("CORS FILTER ATIVADO: origin = " + origin);
         if (origin != null) {
             responseContext.getHeaders().add("Access-Control-Allow-Origin", origin);
         }
